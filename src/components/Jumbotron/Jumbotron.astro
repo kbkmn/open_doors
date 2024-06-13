@@ -1,0 +1,42 @@
+---
+import {
+  backgroundSvgBase64,
+  leftBracketSvgBase64,
+  rightBracketSvgBase64,
+} from "./data"
+---
+
+<div class="mt-8 px-4 sm:px-16">
+  <div
+    class="drop-shadow-red relative mx-auto flex w-full max-w-content items-center bg-[image:var(--background)] bg-contain bg-top bg-no-repeat pt-[calc((100vw_-_2rem)_*_0.8620689655)] md:min-h-[26.875rem] md:bg-right md:pt-0"
+    style={{ ["--background" as any]: `url("${backgroundSvgBase64}")` }}
+  >
+    <div
+      class="relative z-10 flex max-w-[55rem] flex-col gap-4 drop-shadow-[0_0_5rem_white] md:gap-12"
+    >
+      <h1
+        class="text-[2.5rem] font-semibold leading-[2.625rem] text-black [text-shadow:_0_0_1rem_white] md:text-[6rem] md:leading-[6.625rem]"
+      >
+        One{" "}
+        <span
+          class="relative px-3 before:absolute before:left-0 before:top-1/2 before:h-[3rem] before:w-[1.125rem] before:-translate-y-1/2 before:bg-[image:var(--left)] before:bg-contain before:bg-left before:bg-no-repeat after:absolute after:right-0 after:top-1/2 after:h-[3rem] after:w-[1.125rem] after:-translate-y-1/2 after:bg-[image:var(--right)] after:bg-contain after:bg-right after:bg-no-repeat md:px-6 md:before:h-[7.25rem] md:before:w-[2.625rem] md:after:h-[7.25rem] md:after:w-[2.625rem]"
+          style={{
+            ["--left" as any]: `url("${leftBracketSvgBase64}")`,
+            ["--right" as any]: `url("${rightBracketSvgBase64}")`,
+          }}
+        >
+          click
+        </span>{" "}
+        to <br /> open all doors
+      </h1>
+
+      <p
+        class="text-balance text-[0.875rem] font-medium leading-6 [text-shadow:_0_0_0.25rem_white] md:text-[1rem] md:leading-7"
+      >
+        Open Doors: Russian Scholarship Project is your chance for early
+        admission to a tuition-free program at one of the leading universities
+        in Russia.
+      </p>
+    </div>
+  </div>
+</div>

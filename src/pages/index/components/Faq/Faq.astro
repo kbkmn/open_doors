@@ -1,0 +1,96 @@
+---
+import Block from "@/components/Block/Block.astro"
+import Section from "./components/Section.astro"
+
+import { DATA } from "./data"
+---
+
+<Block
+  id="faq"
+  header="FAQ"
+  class="bg-white bg-opacity-60"
+>
+  <div
+    class="flex flex-col gap-3 md:grid md:grid-cols-[1fr_2fr] md:gap-[0_1.5rem]"
+  >
+    {
+      DATA.map(({ title, items }, idx) => (
+        <Section
+          title={title}
+          items={items}
+          active={idx === 0}
+        />
+      ))
+    }
+  </div>
+</Block>
+
+<script>
+  const faq = document.getElementById("faq")
+  const sections = faq?.querySelectorAll(".section") as
+    | NodeListOf<HTMLButtonElement>
+    | undefined
+
+  function initFaq() {
+    sections?.forEach((section, section_idx) => {
+      section.addEventListener("click", () => {
+        openFaqSection(section_idx)
+      })
+
+      const items = section.nextElementSibling?.querySelectorAll("ul > li") as
+        | NodeListOf<HTMLLIElement>
+        | undefined
+
+      items?.forEach((item, item_idx) => {
+        item.querySelector("button")?.addEventListener("click", () => {
+          const section_text = section.nextElementSibling as
+            | HTMLElement
+            | undefined
+          if (!section_text) return
+          toggleFaqSectionItem(section_text, item_idx)
+        })
+      })
+    })
+  }
+
+  function openFaqSection(idx: number) {
+    sections?.forEach((section, section_idx) => {
+      if (section_idx === idx) {
+        section.dataset.active = "true"
+      } else {
+        delete section.dataset.active
+      }
+    })
+  }
+
+  function toggleFaqSectionItem(wrapper: HTMLElement, idx: number) {
+    const items = wrapper.querySelectorAll("ul > li") as
+      | NodeListOf<HTMLLIElement>
+      | undefined
+
+    items?.forEach((item, item_idx) => {
+      const wrapper = item.querySelector("div")
+      const text = wrapper?.querySelector("div")
+      if (!wrapper || !text) return
+
+      if (item_idx === idx && !item.dataset.active) {
+        item.dataset.active = "true"
+        wrapper.style.height = text.clientHeight + "px"
+        wrapper.style.opacity = "1"
+      } else {
+        delete item.dataset.active
+
+        if (wrapper.style.height === "") {
+          wrapper.style.height = text.clientHeight + "px"
+        }
+
+        setTimeout(() => {
+          wrapper.style.height = "0"
+          wrapper.style.opacity = "0"
+        }, 0)
+      }
+    })
+  }
+
+  initFaq()
+</script>

@@ -1,0 +1,66 @@
+---
+import Wrapper from "@/components/Block/Wrapper.astro"
+import Header from "@/components/Block/Header.astro"
+import Controls from "@/components/Controls.astro"
+import Item from "./components/Item.astro"
+---
+
+<Wrapper class="glide bg-white px-0 pt-8">
+  <div class="px-4 sm:px-16">
+    <div class="mx-auto flex w-full max-w-content items-center gap-8">
+      <Header>Schedule</Header>
+
+      <Controls />
+    </div>
+  </div>
+
+  <div
+    class="glide__track mt-6 overflow-clip md:mt-[2.125rem]"
+    data-glide-el="track"
+  >
+    <ul
+      id="schedule"
+      class="glide__slides flex md:pl-[calc((100vw_-_81.5rem)_/_2)]"
+    >
+      <Item />
+
+      <Item />
+
+      <Item />
+
+      <Item last />
+    </ul>
+  </div>
+</Wrapper>
+
+<script>
+  const schedule = document.getElementById("schedule")
+  const items = schedule?.querySelectorAll(":scope > li") as
+    | NodeListOf<HTMLLIElement>
+    | undefined
+
+  items?.forEach((item) => {
+    const buttons = item.querySelectorAll("button[data-set]") as
+      | NodeListOf<HTMLButtonElement>
+      | undefined
+    const wrapper = item.querySelector(".text") as HTMLDivElement | undefined
+    const text = wrapper?.querySelector("div")
+    if (!wrapper || !text) return
+
+    buttons?.forEach((button) => {
+      button.addEventListener("click", () => {
+        const active = button.getAttribute("data-set") === "true"
+
+        if (active) {
+          item.dataset.active = "true"
+          wrapper.style.height = text.clientHeight + "px"
+          wrapper.style.opacity = "1"
+        } else {
+          delete item.dataset.active
+          wrapper.style.height = "0"
+          wrapper.style.opacity = "0"
+        }
+      })
+    })
+  })
+</script>

@@ -1,0 +1,30 @@
+---
+import Application from "@/layouts/Application.astro"
+
+import Jumbotron from "@/components/Jumbotron/Jumbotron.astro"
+
+import News from "./index/components/News/News.astro"
+import Subjects from "./index/components/Subjects/Subjects.astro"
+import Schedule from "./index//components/Schedule/Schedule.astro"
+import Universities from "./index/components/Universities/Universities.astro"
+import Partners from "./index/components/Partners/Partners.astro"
+import Faq from "./index/components/Faq/Faq.astro"
+---
+
+<Application>
+  <Jumbotron />
+
+  <main class="mt-8 md:mt-0">
+    <News />
+
+    <Subjects />
+
+    <Schedule />
+
+    <Universities />
+
+    <Partners />
+
+    <Faq />
+  </main>
+</Application>

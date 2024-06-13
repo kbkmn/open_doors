@@ -1,0 +1,24 @@
+---
+import Wrapper from "./Wrapper.astro"
+import Header from "./Header.astro"
+
+type Props = {
+  id?: string
+  header: string
+  class?: string
+}
+
+const props = Astro.props
+---
+
+<Wrapper {...props}>
+  <div class="mx-auto w-full max-w-content">
+    <Header>
+      <slot name="header" />
+    </Header>
+
+    <div class="mt-6 md:mt-[2.125rem]">
+      <slot />
+    </div>
+  </div>
+</Wrapper>

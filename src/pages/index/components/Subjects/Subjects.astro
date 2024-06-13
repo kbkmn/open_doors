@@ -1,0 +1,26 @@
+---
+import Block from "@/components/Block/Block.astro"
+import Item from "./components/Item.astro"
+
+import { DATA, ICONS } from "./data"
+---
+
+<Block
+  id="subjects"
+  header="Subjects of the OpenDoors"
+  class="pt-0 md:bg-white md:bg-opacity-60 md:pt-16"
+>
+  <ul
+    class="columns-2 gap-3 md:grid md:grid-cols-[repeat(auto-fit,_minmax(13.375rem,_auto))] md:gap-6"
+  >
+    {
+      DATA.map(({ title }, idx) => (
+        <li class="mb-3 inline-block w-full md:mb-0 md:block">
+          <Item title={title}>
+            <Fragment set:html={ICONS[idx % ICONS.length]} />
+          </Item>
+        </li>
+      ))
+    }
+  </ul>
+</Block>

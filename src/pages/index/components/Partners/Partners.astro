@@ -1,0 +1,25 @@
+---
+import Block from "@/components/Block/Block.astro"
+
+import partnerPng from "./assets/_partner.png"
+---
+
+<Block
+  header="Partners"
+  class="bg-white bg-opacity-60 pt-8 md:pt-16"
+>
+  <ul class="grid gap-6 sm:grid-cols-3">
+    {
+      [...Array(3)].map((_) => (
+        <li>
+          <a
+            href="#!"
+            title=""
+            class="block aspect-video rounded-[0.875rem] bg-[image:var(--background)] bg-cover bg-center transition-all md:grayscale md:hover:grayscale-0"
+            style={{ ["--background" as any]: `url("${partnerPng.src}")` }}
+          />
+        </li>
+      ))
+    }
+  </ul>
+</Block>

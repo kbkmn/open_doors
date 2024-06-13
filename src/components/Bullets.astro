@@ -1,0 +1,24 @@
+---
+import { cn } from "@/utils/classname"
+
+type Props = {
+  number: number
+  class?: string
+}
+
+const { number, class: className } = Astro.props
+---
+
+<div
+  class={cn("glide__bullets mt-4 flex gap-4 px-4 md:hidden", className)}
+  data-glide-el="controls[nav]"
+>
+  {
+    [...Array(number)].map((_, idx) => (
+      <button
+        class="glide__bullet h-[0.125rem] grow basis-0 rounded-full bg-[#D8D8D8] [&.glide\_\_bullet--active]:bg-blue"
+        data-glide-dir={`=${idx}`}
+      />
+    ))
+  }
+</div>

@@ -1,0 +1,66 @@
+---
+import Wrapper from "@/components/Block/Wrapper.astro"
+import Header from "@/components/Block/Header.astro"
+import Bullets from "@/components/Bullets.astro"
+import Item from "./components/Item.astro"
+
+import { DATA } from "./data"
+
+import universityPng from "./assets/_university.png"
+
+const ITEMS_PER_BLOCK = 4
+---
+
+<Wrapper
+  id="universities"
+  class="glide mt-8 px-0 sm:px-0 md:mt-0"
+>
+  <div class="px-4 sm:px-16">
+    <div class="mx-auto flex w-full max-w-content items-center gap-8">
+      <Header> Competition organized by leading Russian universities </Header>
+    </div>
+  </div>
+
+  <Bullets number={Math.ceil(DATA.length / ITEMS_PER_BLOCK)} />
+
+  <div
+    class="glide__track mt-4 overflow-clip md:hidden"
+    data-glide-el="track"
+  >
+    <ul class="glide__slides flex">
+      {
+        [...Array(Math.ceil(DATA.length / ITEMS_PER_BLOCK))].map(
+          (_, row_idx) => (
+            <li class="grid grid-cols-2 gap-2 px-2">
+              {[...Array(ITEMS_PER_BLOCK)].map((_, column_idx) =>
+                DATA.length > row_idx * ITEMS_PER_BLOCK + column_idx ? (
+                  <Item
+                    title={DATA[row_idx * ITEMS_PER_BLOCK + column_idx].title}
+                    image_src={universityPng.src}
+                  />
+                ) : null
+              )}
+            </li>
+          )
+        )
+      }
+    </ul>
+  </div>
+
+  <div class="mx-auto mt-[2.125rem] hidden w-full max-w-content md:block">
+    <ul
+      class="grid grid-cols-[repeat(auto-fit,_minmax(8.75rem,_auto))] gap-2 md:grid-cols-[repeat(auto-fit,_minmax(17.625rem,_auto))]"
+    >
+      {
+        DATA.map(({ title }) => (
+          <li>
+            <Item
+              title={title}
+              image_src={universityPng.src}
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Wrapper>
