@@ -1,4 +1,5 @@
 ---
+import { cn } from "@/utils/classname"
 import LanguageSwitch from "./components/LanguageSwitch.astro"
 
 import logoPng from "@/assets/logo.png"
@@ -86,8 +87,8 @@ import logoPng from "@/assets/logo.png"
         >
           {
             [
-              { title: "News", href: "#news" },
-              { title: "About", href: "#about" },
+              { title: "News", href: "/news" },
+              { title: "About", href: "/about" },
               { title: "Rules", href: "#rules" },
               { title: "Universities", href: "#universities" },
               { title: "Tracks", href: "#tracks" },
@@ -98,7 +99,10 @@ import logoPng from "@/assets/logo.png"
                 <a
                   href={href}
                   title={title}
-                  class="hover:text-blue"
+                  class={cn(
+                    "hover:text-blue",
+                    Astro.url.pathname.startsWith(href) && "text-blue"
+                  )}
                 >
                   {title}
                 </a>
