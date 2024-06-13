@@ -1,0 +1,14 @@
+---
+type Props = {
+  datetime: string
+}
+
+const { datetime } = Astro.props
+---
+
+<time
+  datetime={datetime}
+  class="text-[0.75rem] font-medium leading-7 text-mid-gray md:text-[1rem]"
+>
+  <slot />
+</time>
