@@ -1,5 +1,4 @@
 ;(function () {
-  console.log("FUCL")
   document.querySelectorAll(".glide").forEach((slider) => {
     const gap = parseInt(slider.dataset.gap) || 0
 
