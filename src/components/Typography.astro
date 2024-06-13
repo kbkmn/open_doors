@@ -1,0 +1,18 @@
+---
+import { cn } from "@/utils/classname"
+
+type Props = {
+  class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<div
+  class={cn(
+    "leading-7 [&>_*]:my-4 [&_:is(ol,ul)]:pl-4 [&_ol]:list-decimal [&_ul]:list-disc [&_a]:underline [&_a]:text-blue [&_a:hover]:no-underline [&_h1]:text-[1.5rem] [&_h1]:leading-9 [&_:is(h1,h2,h3,h4)]:font-bold after:block after:clear-both",
+    className
+  )}
+>
+  <slot />
+</div>
