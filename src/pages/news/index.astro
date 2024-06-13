@@ -1,0 +1,45 @@
+---
+import Application from "@/layouts/Application.astro"
+
+import Item from "./components/Item.astro"
+
+import { DATA } from "./data"
+---
+
+<Application>
+  <main class="py-8 md:pt-12 md:pb-16 bg-white bg-opacity-60">
+    <div class="px-4">
+      <div class="max-w-content w-full mx-auto">
+        <div
+          class="grid grid-cols-2 md:grid-cols-[1fr_auto_1fr] items-center gap-6"
+        >
+          <div class="whitespace-nowrap">
+            <h1 class="text-[1.5rem] leading-9 font-bold">News</h1>
+          </div>
+
+          <div
+            class="whitespace-nowrap mx-auto col-span-2 md:col-span-1 row-start-2 md:row-start-auto text-balance"
+          >
+            <a
+              href="#!"
+              title="More news"
+              class="text-[0.75rem] font-semibold transition-colors uppercase text-blue hover:text-black"
+              >More news on the website of the Association</a
+            >
+          </div>
+
+          <div class="justify-self-end">
+            <button
+              class="flex hover:bg-pink hover:text-white transition-colors text-pink justify-center items-center border border-pink rounded-full uppercase font-semibold text-[0.75rem] px-6 h-[2.25rem]"
+              >Subscribe</button
+            >
+          </div>
+        </div>
+
+        <ul class="flex flex-col gap-4 mt-12">
+          {DATA.map((news) => <Item {...news} />)}
+        </ul>
+      </div>
+    </div>
+  </main>
+</Application>
