@@ -1,0 +1,34 @@
+---
+import Wrapper from "@/components/Block/Wrapper.astro"
+import Header from "@/components/Block/Header.astro"
+import Controls from "@/components/Controls.astro"
+import Bullets from "@/components/Bullets.astro"
+import Item from "./Item.astro"
+
+import { DATA } from "../../data"
+---
+
+<Wrapper
+  id="news"
+  class="glide px-0 sm:px-0"
+  gap={24}
+>
+  <div class="px-4 sm:px-16">
+    <div class="mx-auto flex w-full max-w-content items-center gap-8">
+      <Header>Recorded live streams of past webinars</Header>
+
+      <Controls />
+    </div>
+  </div>
+
+  <Bullets number={DATA.length} />
+
+  <div
+    class="glide__track mt-6 overflow-clip md:mt-[2.125rem]"
+    data-glide-el="track"
+  >
+    <ul class="glide__slides flex md:pl-[calc((100vw_-_81.5rem)_/_2)]">
+      {DATA.map((video) => <Item {...video} />)}
+    </ul>
+  </div>
+</Wrapper>
