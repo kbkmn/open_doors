@@ -1,0 +1,78 @@
+---
+import Application from "@/layouts/Application.astro"
+
+import Time from "./components/Time.astro"
+import Typography from "@/components/Typography.astro"
+import News from "@/pages/index/components/News/News.astro"
+
+import youtubePng from "@/assets/youtube.png"
+---
+
+<Application>
+  <main>
+    <div class="bg-white bg-opacity-60 pb-8 pt-6 md:py-12 px-4">
+      <div class="max-w-content w-full mx-auto">
+        <div class="max-w-[52.5rem] flex flex-col">
+          <div class="flex flex-col gap-4">
+            <Time datetime="2017-02-14">10 april</Time>
+
+            <h1 class="font-bold text-[1.5rem] leading-9">
+              Cooperation of SUSU and the Russian Federal Nuclear Centre
+            </h1>
+          </div>
+
+          <Typography>
+            <h1>h1</h1>
+
+            <h2>h2</h2>
+
+            <h3>h3</h3>
+
+            <h4>h4</h4>
+
+            <p>
+              Lorem, <b>ipsum dolor sit amet</b> consectetur <strong
+                >adipisicing elit</strong
+              >. Sint perferendis <u>expedita maxime ullam</u> voluptate <i
+                >molestias laudantium</i
+              >
+              tempore quaerat odit. <em>Minima corrupti eligendi</em> autem cum perferendis
+              repellendus at velit voluptas sint.
+            </p>
+
+            <ul>
+              <li>Unordered list item 1</li>
+              <li>Unordered list item 2</li>
+              <li>Unordered list item 3</li>
+              <li>Unordered list item 4</li>
+            </ul>
+
+            <ol>
+              <li>Ordered list item 1</li>
+              <li>Ordered list item 2</li>
+              <li>Ordered list item 3</li>
+              <li>Ordered list item 4</li>
+            </ol>
+
+            <p>
+              <img
+                src={youtubePng.src}
+                alt="youtube"
+                class="mr-4 float-left clear inline-flex"
+              />
+
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
+              adipisci architecto distinctio impedit repudiandae? Voluptates
+              repellendus, fuga cum harum nemo neque architecto eum et
+              excepturi. Illum laboriosam reiciendis facere enim?
+            </p>
+
+            <p>Source: <a href="#!">https://5top100.ru/en/news/132544/</a></p>
+          </Typography>
+        </div>
+      </div>
+    </div>
+
+    <News header="All News" />
+  </main>
+</Application>
