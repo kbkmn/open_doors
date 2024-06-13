@@ -1,0 +1,16 @@
+---
+type Props = {
+  id: string
+  title: string
+}
+
+const { id, title } = Astro.props
+---
+
+<label
+  for={id}
+  class="uppercase text-mid-gray"
+  >{title}</label
+>
+
+<slot />
