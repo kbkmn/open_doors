@@ -16,7 +16,7 @@ const { number, class: className } = Astro.props
   {
     [...Array(number)].map((_, idx) => (
       <button
-        class="glide__bullet h-[0.125rem] grow basis-0 rounded-full bg-[#D8D8D8] [&.glide\\_\\_bullet--active]:bg-blue"
+        class="glide__bullet h-[0.125rem] grow basis-0 rounded-full bg-[#D8D8D8] [&.glide\\\\_\\\\_bullet--active]:bg-blue"
         data-glide-dir={`=${idx}`}
       />
     ))
