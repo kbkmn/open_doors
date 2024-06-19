@@ -14,7 +14,7 @@ const { id, options } = Astro.props
     viewBox="0 0 14 8"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
-    class="pointer-events-none z-10 right-3 relative col-start-1 row-start-1 h-4 w-4 self-center justify-self-end forced-colors:hidden"
+    class="pointer-events-none relative right-3 z-10 col-start-1 row-start-1 h-4 w-4 self-center justify-self-end forced-colors:hidden"
   >
     <path
       fill-rule="evenodd"
@@ -26,7 +26,7 @@ const { id, options } = Astro.props
 
   <select
     id={id}
-    class="border forced-colors:appearance-auto row-start-1 col-start-1 appearance-none border-mid-gray rounded-[0.5rem] h-[2.25rem] px-4"
+    class="col-start-1 row-start-1 h-[2.25rem] appearance-none rounded-[0.5rem] border border-mid-gray px-4 forced-colors:appearance-auto"
   >
     {options.map((option) => <option>{option}</option>)}
   </select>
