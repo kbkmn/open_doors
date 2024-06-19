@@ -1,6 +1,7 @@
 ---
 import Application from "@/layouts/Application.astro"
 
+import Breadcrumbs from "@/components/Breadcrumbs.astro"
 import Time from "./components/Time.astro"
 import Typography from "@/components/Typography.astro"
 import News from "@/pages/index/components/News/News.astro"
@@ -10,13 +11,20 @@ import youtubePng from "@/assets/youtube.png"
 
 <Application>
   <main>
-    <div class="bg-white bg-opacity-60 pb-8 pt-6 md:py-12 px-4">
-      <div class="max-w-content w-full mx-auto">
-        <div class="max-w-[52.5rem] flex flex-col">
+    <div class="bg-white bg-opacity-60 px-4 pb-8 pt-6 md:py-12">
+      <div class="mx-auto w-full max-w-content">
+        <Breadcrumbs
+          items={[
+            { text: "News", href: "/news" },
+            "Cooperation of SUSU and the Russian Federal Nuclear Centre",
+          ]}
+        />
+
+        <div class="mt-6 flex max-w-[52.5rem] flex-col">
           <div class="flex flex-col gap-4">
             <Time datetime="2017-02-14">10 april</Time>
 
-            <h1 class="font-bold text-[1.5rem] leading-9">
+            <h1 class="text-[1.5rem] font-bold leading-9">
               Cooperation of SUSU and the Russian Federal Nuclear Centre
             </h1>
           </div>
@@ -58,7 +66,7 @@ import youtubePng from "@/assets/youtube.png"
               <img
                 src={youtubePng.src}
                 alt="youtube"
-                class="mr-4 float-left clear inline-flex"
+                class="clear float-left mr-4 inline-flex"
               />
 
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet
