@@ -1,42 +1,45 @@
 ---
 import Application from "@/layouts/Application.astro"
 
+import Breadcrumbs from "@/components/Breadcrumbs.astro"
 import Item from "./components/Item.astro"
 
 import { DATA } from "./data"
 ---
 
 <Application>
-  <main class="py-8 md:pt-12 md:pb-16 bg-white bg-opacity-60">
+  <main class="bg-white bg-opacity-60 py-8 md:pb-16 md:pt-12">
     <div class="px-4">
-      <div class="max-w-content w-full mx-auto">
+      <div class="mx-auto w-full max-w-content">
+        <Breadcrumbs items={["News"]} />
+
         <div
-          class="grid grid-cols-2 md:grid-cols-[1fr_auto_1fr] items-center gap-6"
+          class="mt-6 grid grid-cols-2 items-center gap-6 md:grid-cols-[1fr_auto_1fr]"
         >
           <div class="whitespace-nowrap">
-            <h1 class="text-[1.5rem] leading-9 font-bold">News</h1>
+            <h1 class="text-[1.5rem] font-bold leading-9">News</h1>
           </div>
 
           <div
-            class="whitespace-nowrap mx-auto col-span-2 md:col-span-1 row-start-2 md:row-start-auto text-balance"
+            class="col-span-2 row-start-2 mx-auto whitespace-nowrap text-balance md:col-span-1 md:row-start-auto"
           >
             <a
               href="#!"
               title="More news"
-              class="text-[0.75rem] font-semibold transition-colors uppercase text-blue hover:text-black"
+              class="text-[0.75rem] font-semibold uppercase text-blue transition-colors hover:text-black"
               >More news on the website of the Association</a
             >
           </div>
 
           <div class="justify-self-end">
             <button
-              class="flex hover:bg-pink hover:text-white transition-colors text-pink justify-center items-center border border-pink rounded-full uppercase font-semibold text-[0.75rem] px-6 h-[2.25rem]"
+              class="flex h-[2.25rem] items-center justify-center rounded-full border border-pink px-6 text-[0.75rem] font-semibold uppercase text-pink transition-colors hover:bg-pink hover:text-white"
               >Subscribe</button
             >
           </div>
         </div>
 
-        <ul class="flex flex-col gap-4 mt-12">
+        <ul class="mt-12 flex flex-col gap-4">
           {DATA.map((news) => <Item {...news} />)}
         </ul>
       </div>
