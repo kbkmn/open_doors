@@ -5,6 +5,7 @@ export default {
     extend: {
       maxWidth: {
         content: "81.5rem",
+        // content: "72.125rem",
       },
       fontFamily: {
         sans: ["Raleway"],
