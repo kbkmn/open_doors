@@ -12,7 +12,7 @@ const { date, title, content, class: className } = Astro.props
 
 <li class={className}>
   <a
-    href="/news/news-slug-1"
+    href={import.meta.env.BASE_URL + "/news/news-slug-1"}
     title=""
     class="group flex h-full select-none flex-col gap-8 rounded-2xl bg-white fill-gray-light p-8 transition-colors transition-opacity hover:fill-blue md:gap-11"
   >
