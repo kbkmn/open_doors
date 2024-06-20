@@ -1,5 +1,5 @@
 ---
-import { type Video } from "../../data"
+import { type Video } from "../../_data"
 
 type Props = Video
 
@@ -7,11 +7,11 @@ const { title, embed } = Astro.props
 ---
 
 <li
-  class="glide__slide w-[calc(100vw_-_2rem)] shrink-0 px-4 md:w-[33rem] md:px-0 select-none"
+  class="glide__slide w-[calc(100vw_-_2rem)] shrink-0 select-none px-4 md:w-[33rem] md:px-0"
 >
-  <div class="bg-white rounded-[1rem] p-6 md:p-8 flex flex-col gap-4 md:gap-6">
+  <div class="flex flex-col gap-4 rounded-[1rem] bg-white p-6 md:gap-6 md:p-8">
     <div
-      class="rounded-[0.5rem] overflow-clip"
+      class="overflow-clip rounded-[0.5rem]"
       set:html={embed}
     />
 
