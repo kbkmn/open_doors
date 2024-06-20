@@ -7,6 +7,8 @@ import Select from "@/components/Select.astro"
 
 import { DATA } from "@/pages/index/components/Faq/data"
 
+import captchaPng from "@/assets/captcha.png"
+
 const faq = DATA.at(0)!.items
 ---
 
@@ -24,121 +26,132 @@ const faq = DATA.at(0)!.items
           </h1>
 
           <div
-            class="mt-6 max-w-[44.375rem] bg-white p-6 md:mt-8 md:rounded-[1rem] md:p-8"
+            class="mt-6 max-w-[44.375rem] bg-white p-6 text-[0.75rem] font-semibold leading-[0.875rem] md:mt-8 md:rounded-[1rem] md:p-8"
           >
             <form>
-              <ul
-                class="flex flex-col gap-5 text-[0.75rem] font-semibold leading-[0.875rem]"
-              >
-                <li class="flex flex-col gap-3">
+              <ul class="flex flex-col gap-5">
+                <li
+                  data-invalid="true"
+                  class="group flex flex-col gap-3"
+                >
                   <Label
                     id="contacts-email"
                     title="Email"
-                  >
-                    <input
-                      type="email"
-                      class="h-[2.25rem] rounded-[0.5rem] border border-mid-gray px-4"
-                      id="contacts-email"
-                    />
-                  </Label>
+                  />
+
+                  <input
+                    type="email"
+                    class="h-[2.25rem] rounded-[0.5rem] border border-mid-gray px-4 outline-none group-data-[invalid='true']:border-red group-data-[invalid='true']:text-red"
+                    id="contacts-email"
+                  />
+
+                  <p class="leading-5 text-red">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Incidunt ad rerum optio, ullam, dolores quo dolorem autem
+                    quis illum impedit itaque nulla corrupti odio voluptatum
+                    earum illo distinctio quibusdam eligendi.
+                  </p>
                 </li>
 
-                <li class="flex flex-col gap-3">
+                <li class="group flex flex-col gap-3">
                   <Label
                     id="contacts-name"
                     title="Full name"
-                  >
-                    <input
-                      type="text"
-                      class="h-[2.25rem] rounded-[0.5rem] border border-mid-gray px-4"
-                      id="contacts-name"
-                    />
-                  </Label>
+                  />
+
+                  <input
+                    type="text"
+                    class="h-[2.25rem] rounded-[0.5rem] border border-mid-gray px-4 outline-none group-data-[invalid='true']:border-red group-data-[invalid='true']:text-red"
+                    id="contacts-name"
+                  />
                 </li>
 
-                <li class="flex flex-col gap-3">
+                <li
+                  data-invalid="true"
+                  class="group flex flex-col gap-3"
+                >
                   <Label
                     id="contacts-category"
                     title="Category"
-                  >
-                    <Select
-                      id="contacts-category"
-                      options={["Option 1", "Option 2", "Option 3"]}
-                    />
-                  </Label>
+                  />
+
+                  <Select
+                    id="contacts-category"
+                    options={["Option 1", "Option 2", "Option 3"]}
+                  />
                 </li>
 
                 <li class="flex flex-col gap-3">
                   <Label
                     id="contacts-subcategory"
                     title="Subcategory"
-                  >
-                    <Select
-                      id="contacts-subcategory"
-                      options={["Option 1", "Option 2", "Option 3"]}
-                    />
-                  </Label>
+                  />
+
+                  <Select
+                    id="contacts-subcategory"
+                    options={["Option 1", "Option 2", "Option 3"]}
+                  />
                 </li>
-
-                <div>
-                  <div class="uppercase text-mid-gray">Faq</div>
-
-                  <ul
-                    id="faq"
-                    class="mt-5 flex flex-col gap-6"
-                  >
-                    {
-                      faq.map(({ title, content }) => (
-                        <li>
-                          <button
-                            type="button"
-                            class="text-left text-[1.125rem] font-bold leading-[1.625rem] text-mid-gray data-[active='true']:text-blue md:hover:text-blue"
-                          >
-                            {title}
-                          </button>
-
-                          <div
-                            class="text overflow-clip transition-all"
-                            style={{ height: 0, opacity: 0 }}
-                          >
-                            <div
-                              class="pt-4 text-[0.875rem] font-normal leading-6"
-                              set:html={content}
-                            />
-                          </div>
-                        </li>
-                      ))
-                    }
-
-                    <li>
-                      <button
-                        type="button"
-                        class="text-left text-[1.125rem] font-bold leading-[1.625rem] text-mid-gray hover:text-blue data-[active='true']:text-blue"
-                      >
-                        Other question
-                      </button>
-
-                      <div
-                        class="text overflow-clip transition-all"
-                        style={{ height: 0, opacity: 0 }}
-                      >
-                        <div class="flex flex-col gap-3 pt-4">
-                          <Label
-                            id="contacts-question"
-                            title="Your question"
-                          >
-                            <textarea
-                              class="resize-none rounded-[0.5rem] border border-mid-gray p-4"
-                              rows="4"
-                              id="contacts-question"
-                            ></textarea>
-                          </Label>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
               </ul>
+
+              <div class="mt-5">
+                <div class="uppercase text-mid-gray">Faq</div>
+
+                <ul
+                  id="faq"
+                  class="mt-5 flex flex-col gap-6"
+                >
+                  {
+                    faq.map(({ title, content }) => (
+                      <li>
+                        <button
+                          type="button"
+                          class="text-left text-[1.125rem] font-bold leading-[1.625rem] text-mid-gray data-[active='true']:text-blue md:hover:text-blue"
+                        >
+                          {title}
+                        </button>
+
+                        <div
+                          class="text overflow-clip transition-all"
+                          style={{ height: 0, opacity: 0 }}
+                        >
+                          <div
+                            class="pt-4 text-[0.875rem] font-normal leading-6"
+                            set:html={content}
+                          />
+                        </div>
+                      </li>
+                    ))
+                  }
+
+                  <li>
+                    <button
+                      type="button"
+                      class="text-left text-[1.125rem] font-bold leading-[1.625rem] text-mid-gray hover:text-blue data-[active='true']:text-blue"
+                    >
+                      Other question
+                    </button>
+
+                    <div
+                      class="text overflow-clip transition-all"
+                      style={{ height: 0, opacity: 0 }}
+                    >
+                      <div class="flex flex-col gap-3 pt-4">
+                        <Label
+                          id="contacts-question"
+                          title="Your question"
+                        />
+
+                        <textarea
+                          class="resize-none rounded-[0.5rem] border border-mid-gray p-4 outline-none"
+                          rows="4"
+                          id="contacts-question"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
 
               <div class="mt-8 flex flex-col gap-2">
                 <div
@@ -147,8 +160,35 @@ const faq = DATA.at(0)!.items
                   captcha
                 </div>
 
-                <div class="flex flex-col md:flex-row md:justify-between">
-                  <div></div>
+                <div class="flex flex-col gap-4 md:flex-row md:justify-between">
+                  <div class="flex items-center gap-6">
+                    <div class="flex items-center gap-2">
+                      <img src={captchaPng.src} />
+
+                      <button
+                        role="button"
+                        class="flex h-8 w-8 items-center justify-center"
+                      >
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12 0C6.88672 0 2.61719 3.16016 0.875 7.625L2.71875 8.375C4.17578 4.64062 7.71094 2 12 2C15.2422 2 18.1328 3.58984 19.9375 6H16V8H23V1H21V4.09375C18.8086 1.58203 15.5703 0 12 0ZM21.2812 15.625C19.8242 19.3594 16.2891 22 12 22C8.72266 22 5.84375 20.3867 4.03125 18H8V16H1V23H3V19.9062C5.1875 22.3867 8.39453 24 12 24C17.1133 24 21.3828 20.8398 23.125 16.375L21.2812 15.625Z"
+                            fill="black"
+                          ></path>
+                        </svg>
+                      </button>
+                    </div>
+
+                    <input
+                      type="text"
+                      class="h-9 rounded-[0.5rem] border border-mid-gray px-4 outline-none"
+                    />
+                  </div>
 
                   <div>
                     <button
