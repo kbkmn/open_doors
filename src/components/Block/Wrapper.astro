@@ -4,15 +4,17 @@ import { cn } from "@/utils/classname"
 type Props = {
   id?: string
   class?: string
+  per_view?: number
   gap?: number
 }
 
-const { id, class: className, gap } = Astro.props
+const { id, class: className, per_view, gap } = Astro.props
 ---
 
 <div
   id={id}
   class={cn("px-4 pb-8 md:py-16", className)}
+  data-per-view={per_view}
   data-gap={gap}
 >
   <slot />
