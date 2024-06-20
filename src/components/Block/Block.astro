@@ -5,15 +5,22 @@ import Header from "./Header.astro"
 type Props = {
   id?: string
   header: string
+  subheader?: string
   class?: string
 }
 
-const { header, ...props } = Astro.props
+const { header, subheader, ...props } = Astro.props
 ---
 
 <Wrapper {...props}>
   <div class="mx-auto w-full max-w-content">
     <Header>{header}</Header>
+
+    {
+      !!subheader && (
+        <div class="text-[1.25rem] font-semibold leading-7">{subheader}</div>
+      )
+    }
 
     <div class="mt-6 md:mt-[2.125rem]">
       <slot />
