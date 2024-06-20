@@ -28,7 +28,10 @@ const faq = DATA.at(0)!.items
           <div
             class="mt-6 max-w-[44.375rem] bg-white p-6 text-[0.75rem] font-semibold leading-[0.875rem] md:mt-8 md:rounded-[1rem] md:p-8"
           >
-            <form>
+            <form
+              action=""
+              method="post"
+            >
               <ul class="flex flex-col gap-5">
                 <li
                   data-invalid="true"
@@ -161,7 +164,7 @@ const faq = DATA.at(0)!.items
                 </div>
 
                 <div class="flex flex-col gap-4 md:flex-row md:justify-between">
-                  <div class="flex items-center gap-6">
+                  <div class="flex flex-wrap items-center gap-6">
                     <div class="flex items-center gap-2">
                       <img src={captchaPng.src} />
 
@@ -205,6 +208,54 @@ const faq = DATA.at(0)!.items
       </div>
     </div>
   </main>
+
+  <dialog
+    id="contacts-dialog"
+    class="w-full bg-transparent backdrop:bg-black backdrop:bg-opacity-60"
+  >
+    <form
+      action=""
+      method="post"
+      class="mx-auto flex w-full max-w-[44.25rem] flex-col gap-4 rounded-[1rem] bg-white p-6 md:p-8"
+    >
+      <div class="flex items-center justify-between">
+        <h2 class="text-[1.25rem] font-semibold text-gray-dark">Contact us</h2>
+
+        <button class="close flex h-9 w-9 items-center justify-center"
+          ><svg
+            width="19"
+            height="19"
+            viewBox="0 0 19 19"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.1744 9.49899L18.651 2.03423C18.8745 1.81075 19 1.50766 19 1.19162C19 0.875585 18.8745 0.572491 18.651 0.349018C18.4275 0.125546 18.1244 0 17.8084 0C17.4923 0 17.1892 0.125546 16.9658 0.349018L9.50101 7.82565L2.03625 0.349018C1.81278 0.125546 1.50969 2.80593e-07 1.19365 2.82947e-07C0.87761 2.85302e-07 0.574516 0.125546 0.351043 0.349018C0.127571 0.572491 0.00202562 0.875585 0.00202562 1.19162C0.00202562 1.50766 0.127571 1.81075 0.351043 2.03423L7.82767 9.49899L0.351043 16.9637C0.23981 17.0741 0.151521 17.2053 0.0912708 17.35C0.0310203 17.4946 0 17.6497 0 17.8064C0 17.963 0.0310203 18.1181 0.0912708 18.2628C0.151521 18.4074 0.23981 18.5386 0.351043 18.649C0.461369 18.7602 0.592626 18.8485 0.737245 18.9087C0.881863 18.969 1.03698 19 1.19365 19C1.35031 19 1.50543 18.969 1.65005 18.9087C1.79467 18.8485 1.92593 18.7602 2.03625 18.649L9.50101 11.1723L16.9658 18.649C17.0761 18.7602 17.2074 18.8485 17.352 18.9087C17.4966 18.969 17.6517 19 17.8084 19C17.965 19 18.1202 18.969 18.2648 18.9087C18.4094 18.8485 18.5407 18.7602 18.651 18.649C18.7622 18.5386 18.8505 18.4074 18.9108 18.2628C18.971 18.1181 19.002 17.963 19.002 17.8064C19.002 17.6497 18.971 17.4946 18.9108 17.35C18.8505 17.2053 18.7622 17.0741 18.651 16.9637L11.1744 9.49899Z"
+              fill="#2D2D37"
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="flex flex-col gap-6">
+        <div>
+          <p>
+            Thank you for reaching out to us. Your message has been received,
+            and our team will get back to you shortly. We appreciate your
+            interest and will do our best to assist you promptly.
+          </p>
+        </div>
+
+        <div class="flex gap-2 md:justify-end">
+          <button
+            class="close flex h-[2.25rem] grow basis-0 items-center justify-center rounded-full border border-pink px-6 text-[0.75rem] font-semibold uppercase text-pink transition-colors md:grow-0 md:hover:bg-pink md:hover:text-white"
+          >
+            Ok
+          </button>
+        </div>
+      </div>
+    </form>
+  </dialog>
 </Application>
 
 <script is:inline>
