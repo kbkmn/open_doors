@@ -1,0 +1,52 @@
+---
+import Application from "@/layouts/Application.astro"
+
+import Wrapper from "@/components/Block/Wrapper.astro"
+import Breadcrumbs from "@/components/Breadcrumbs.astro"
+import Header from "@/components/Block/Header.astro"
+import Controls from "@/components/Controls.astro"
+import Bullets from "@/components/Bullets.astro"
+import Item from "@/pages/subjects/_components/Item.astro"
+
+import { FILES } from "@/pages/subjects/_data"
+---
+
+<Application>
+  <main class="grow">
+    <Wrapper
+      class="glide px-0 pt-6 sm:px-0 md:pt-12"
+      per_view={3.5}
+      gap={24}
+    >
+      <div class="px-4 sm:px-16">
+        <div class="mx-auto w-full max-w-content">
+          <Breadcrumbs items={["Rules"]} />
+
+          <div class="mt-6 flex items-center gap-8">
+            <Header>Rules</Header>
+
+            <Controls />
+          </div>
+        </div>
+      </div>
+
+      <Bullets number={FILES.length} />
+
+      <div
+        class="glide__track mt-6 overflow-clip md:mt-[2.125rem]"
+        data-glide-el="track"
+      >
+        <ul class="glide__slides flex md:pl-[calc((100vw_-_81.5rem)_/_2)]">
+          {
+            FILES.map((file) => (
+              <Item
+                {...file}
+                class="glide__slide w-[calc(100vw_-_2rem)] shrink-0 px-4 md:w-[18rem] md:px-0"
+              />
+            ))
+          }
+        </ul>
+      </div>
+    </Wrapper>
+  </main>
+</Application>
