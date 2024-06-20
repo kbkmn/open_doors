@@ -5,15 +5,15 @@ import LanguageSwitch from "./components/LanguageSwitch.astro"
 ---
 
 <header
-  class="sticky top-0 z-50 bg-white p-4 text-sm font-medium sm:px-16 md:static md:bg-transparent md:pb-6 md:pt-8"
+  class="sticky top-0 z-50 bg-white p-4 text-sm font-medium md:static md:bg-transparent md:pb-6 md:pt-8"
 >
   <div
-    class="mx-auto flex w-full max-w-content flex-wrap items-center justify-between gap-4"
+    class="mx-auto flex w-full max-w-content flex-wrap items-center justify-between gap-4 md:gap-6"
   >
     <div class="flex items-center gap-4 md:gap-[1.625rem]">
       <a
         href="/"
-        class="block w-[3.875rem] md:w-[8.25rem]"
+        class="block"
       >
         <svg
           width="96"
@@ -21,7 +21,7 @@ import LanguageSwitch from "./components/LanguageSwitch.astro"
           viewBox="0 0 96 61"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          class="max-w-full"
+          class="h-[2.375rem] w-auto md:h-[5.125rem]"
         >
           <path
             d="M5.15999 36.4999C4.21697 36.5232 3.28276 36.3136 2.43999 35.8899C1.6775 35.4918 1.05086 34.8756 0.639989 34.1199C0.197151 33.3011 -0.0235037 32.3805 -1.11321e-05 31.4499C-0.0232942 30.5129 0.197242 29.586 0.639989 28.7599C1.05048 28.0064 1.67748 27.3934 2.43999 26.9999C3.27938 26.5648 4.21481 26.3482 5.15999 26.3699C6.10198 26.3481 7.03419 26.5649 7.86999 26.9999C8.63475 27.3937 9.26488 28.0065 9.67999 28.7599C10.1159 29.5846 10.3328 30.5074 10.31 31.4399C10.3306 32.3722 10.1138 33.2944 9.67999 34.1199C9.26336 34.8797 8.63441 35.5017 7.86999 35.9099C7.02901 36.3267 6.09812 36.5294 5.15999 36.4999ZM7.64999 31.4099C7.69411 30.6697 7.46255 29.9394 6.99999 29.3599C6.78133 29.1001 6.50671 28.8932 6.19671 28.7547C5.88671 28.6161 5.54938 28.5495 5.20999 28.5599C4.8692 28.5534 4.53134 28.6238 4.22146 28.7657C3.91158 28.9077 3.63765 29.1176 3.41999 29.3799C2.93472 29.9574 2.6848 30.6964 2.71999 31.4499C2.68986 32.1966 2.93948 32.9276 3.41999 33.4999C3.6401 33.7573 3.91524 33.9619 4.22507 34.0986C4.5349 34.2354 4.8715 34.3007 5.20999 34.2899C5.5483 34.2961 5.88371 34.2266 6.19169 34.0864C6.49967 33.9463 6.77242 33.739 6.98999 33.4799C7.45413 32.893 7.68874 32.1572 7.64999 31.4099Z"
@@ -130,28 +130,32 @@ import LanguageSwitch from "./components/LanguageSwitch.astro"
       </button>
 
       <nav
-        class="absolute left-0 top-full z-50 hidden h-[calc(100vh_-_4.375rem)] w-full grow flex-col gap-[1rem_4rem] whitespace-nowrap bg-white px-6 py-8 text-[0.875rem] font-semibold uppercase peer-data-[active='true']:flex md:static md:flex md:h-auto md:flex-row md:flex-wrap md:justify-end md:bg-transparent md:p-0 md:text-[0.75rem]"
+        class="absolute left-0 top-full z-50 hidden h-[calc(100vh_-_4.375rem)] w-full grow flex-col gap-[1rem_3rem] whitespace-nowrap bg-white px-6 py-8 text-[0.875rem] font-semibold uppercase peer-data-[active='true']:flex md:static md:flex md:h-auto md:flex-row md:flex-wrap md:justify-end md:bg-transparent md:p-0 md:text-[0.75rem]"
       >
         <ul
-          class="flex grow flex-col gap-8 md:flex-row md:flex-wrap md:justify-end md:gap-[0.5rem_1.5rem]"
+          class="flex grow flex-col gap-8 md:flex-row md:flex-wrap md:justify-end md:gap-[0.5rem_1rem]"
         >
           {
             [
               { title: "News", href: "/news" },
               { title: "About", href: "/about" },
-              { title: "Rules", href: "/#rules" },
+              { title: "Rules", href: "/rules" },
               { title: "Universities", href: "/#universities" },
               { title: "Tracks", href: "/olympiad" },
-              { title: "Subjects", href: "/#subjects" },
+              { title: "Subjects", href: "/subjects" },
+              { title: "Schedule", href: "/#!" },
               { title: "FAQ", href: "/#faq" },
-            ].map(({ title, href }) => (
+              { title: "Contact us", href: "/contacts" },
+            ].map(({ title, href }, idx) => (
               <li>
                 <a
-                  href={href}
+                  href={import.meta.env.BASE_URL + href}
                   title={title}
                   class={cn(
                     "hover:text-blue",
-                    Astro.url.pathname.startsWith(href) && "text-blue"
+                    Astro.url.pathname.startsWith(
+                      import.meta.env.BASE_URL + href
+                    ) && "text-blue"
                   )}
                 >
                   {title}
@@ -161,7 +165,7 @@ import LanguageSwitch from "./components/LanguageSwitch.astro"
           }
         </ul>
 
-        <div class="flex shrink justify-between gap-[1rem_4rem]">
+        <div class="flex shrink justify-between gap-[1rem_3rem]">
           <LanguageSwitch />
 
           <ul class="flex gap-6">
