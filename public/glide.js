@@ -12,6 +12,14 @@
           gap: 0,
         },
       },
+      classes: {
+        arrow: {
+          disabled: "!fill-gray",
+        },
+        nav: {
+          active: "!bg-blue",
+        },
+      },
     }).mount()
   })
 })()
