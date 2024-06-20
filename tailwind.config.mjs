@@ -22,5 +22,6 @@ export default {
       },
     },
   },
+  safelist: ["!fill-gray", "!hover:fill-gray", "!bg-blue"],
   plugins: [],
 }
