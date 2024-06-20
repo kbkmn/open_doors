@@ -7,12 +7,11 @@ type Props = {
 const { id, options } = Astro.props
 ---
 
-<div class="grid">
+<div class="grid fill-black group-data-[invalid='true']:fill-red">
   <svg
     width="14"
     height="8"
     viewBox="0 0 14 8"
-    fill="none"
     xmlns="http://www.w3.org/2000/svg"
     class="pointer-events-none relative right-3 z-10 col-start-1 row-start-1 h-4 w-4 self-center justify-self-end forced-colors:hidden"
   >
@@ -20,13 +19,12 @@ const { id, options } = Astro.props
       fill-rule="evenodd"
       clip-rule="evenodd"
       d="M13.7803 0.46967C14.0732 0.762564 14.0732 1.23744 13.7803 1.53033L7.78033 7.53033C7.48744 7.82322 7.01256 7.82322 6.71967 7.53033L0.71967 1.53033C0.426777 1.23744 0.426777 0.762563 0.71967 0.46967C1.01256 0.176777 1.48744 0.176777 1.78033 0.46967L7.25 5.93934L12.7197 0.46967C13.0126 0.176777 13.4874 0.176777 13.7803 0.46967Z"
-      fill="#030D45"
     ></path>
   </svg>
 
   <select
     id={id}
-    class="col-start-1 row-start-1 h-[2.25rem] appearance-none rounded-[0.5rem] border border-mid-gray px-4 forced-colors:appearance-auto"
+    class="col-start-1 row-start-1 h-[2.25rem] appearance-none rounded-[0.5rem] border border-mid-gray px-4 outline-none group-data-[invalid='true']:border-red forced-colors:appearance-auto"
   >
     {options.map((option) => <option>{option}</option>)}
   </select>
