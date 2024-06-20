@@ -1,14 +1,29 @@
 ---
+import { cn } from "@/utils/classname"
+
 import Block from "@/components/Block/Block.astro"
 import Item from "./components/Item.astro"
 
 import { DATA, ICONS } from "./_data"
+
+type Props = {
+  header?: string
+  subheader?: string
+  class?: string
+}
+
+const {
+  header = "Subjects of the OpenDoors",
+  subheader,
+  class: className,
+} = Astro.props
 ---
 
 <Block
   id="subjects"
-  header="Subjects of the OpenDoors"
-  class="pt-0 md:bg-white md:bg-opacity-60 md:pt-16"
+  header={header}
+  subheader={subheader}
+  class={cn("pt-0 md:bg-white md:bg-opacity-60 md:pt-16", className)}
 >
   <ul
     class="columns-2 gap-3 md:grid md:grid-cols-[repeat(auto-fit,_minmax(13.375rem,_auto))] md:gap-6"
