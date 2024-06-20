@@ -53,5 +53,38 @@ const backgroundBase64 =
       src="/glide.js"
       is:inline
     ></script>
+    <script is:inline>
+      ;(function () {
+        document.querySelectorAll("[data-dialog]").forEach((button) => {
+          const dialog_id = button.dataset.dialog
+
+          button.addEventListener("click", () => {
+            const dialog = document.getElementById(dialog_id)
+            dialog.showModal()
+            document.body.style.overflow = "hidden"
+          })
+        })
+
+        document.querySelectorAll("dialog").forEach((dialog) => {
+          const close = dialog.querySelectorAll(".close")
+
+          close.forEach((button) => {
+            button.addEventListener("click", (event) => {
+              event.preventDefault()
+              dialog.close()
+            })
+          })
+
+          if (dialog.dataset.active === "true") {
+            dialog.showModal()
+            document.body.style.overflow = "hidden"
+          }
+
+          dialog.addEventListener("close", () => {
+            document.body.style.overflow = null
+          })
+        })
+      })()
+    </script>
   </body>
 </html>
