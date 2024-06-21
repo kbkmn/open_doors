@@ -7,4 +7,5 @@ export default defineConfig({
   output: "static",
   compressHTML: false,
   integrations: [tailwind()],
+  base: "/preview",
 })
