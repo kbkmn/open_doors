@@ -5,23 +5,22 @@ import LanguageSwitch from "./components/LanguageSwitch.astro"
 ---
 
 <header
-  class="sticky top-0 z-50 bg-white p-4 text-sm font-medium xl:static xl:bg-transparent xl:pb-6 xl:pt-8"
+  class="sticky top-0 z-50 bg-white p-4 text-sm font-medium lg:static lg:bg-transparent lg:pb-6 lg:pt-8"
 >
   <div
-    class="mx-auto flex w-full max-w-content flex-wrap items-center justify-between gap-4 xl:gap-6"
+    class="mx-auto flex w-full max-w-content flex-wrap items-center justify-between gap-4 lg:gap-6"
   >
-    <div class="flex items-center gap-4 xl:gap-[1.625rem]">
-      <a
-        href="/"
-        class="block"
-      >
+    <a
+      href="/"
+      class="flex shrink-0 items-center gap-2 lg:gap-[0.625rem] [&_svg]:max-w-full"
+    >
+      <div class="w-[4.625rem] shrink-0 lg:w-[6.25rem]">
         <svg
           width="96"
           height="61"
           viewBox="0 0 96 61"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          class="h-[2.375rem] w-auto xl:h-[5.125rem]"
         >
           <path
             d="M5.15999 36.4999C4.21697 36.5232 3.28276 36.3136 2.43999 35.8899C1.6775 35.4918 1.05086 34.8756 0.639989 34.1199C0.197151 33.3011 -0.0235037 32.3805 -1.11321e-05 31.4499C-0.0232942 30.5129 0.197242 29.586 0.639989 28.7599C1.05048 28.0064 1.67748 27.3934 2.43999 26.9999C3.27938 26.5648 4.21481 26.3482 5.15999 26.3699C6.10198 26.3481 7.03419 26.5649 7.86999 26.9999C8.63475 27.3937 9.26488 28.0065 9.67999 28.7599C10.1159 29.5846 10.3328 30.5074 10.31 31.4399C10.3306 32.3722 10.1138 33.2944 9.67999 34.1199C9.26336 34.8797 8.63441 35.5017 7.86999 35.9099C7.02901 36.3267 6.09812 36.5294 5.15999 36.4999ZM7.64999 31.4099C7.69411 30.6697 7.46255 29.9394 6.99999 29.3599C6.78133 29.1001 6.50671 28.8932 6.19671 28.7547C5.88671 28.6161 5.54938 28.5495 5.20999 28.5599C4.8692 28.5534 4.53134 28.6238 4.22146 28.7657C3.91158 28.9077 3.63765 29.1176 3.41999 29.3799C2.93472 29.9574 2.6848 30.6964 2.71999 31.4499C2.68986 32.1966 2.93948 32.9276 3.41999 33.4999C3.6401 33.7573 3.91524 33.9619 4.22507 34.0986C4.5349 34.2354 4.8715 34.3007 5.20999 34.2899C5.5483 34.2961 5.88371 34.2266 6.19169 34.0864C6.49967 33.9463 6.77242 33.739 6.98999 33.4799C7.45413 32.893 7.68874 32.1572 7.64999 31.4099Z"
@@ -68,21 +67,21 @@ import LanguageSwitch from "./components/LanguageSwitch.astro"
             fill="#1A9BD7"
           ></path>
         </svg>
-      </a>
+      </div>
 
       <div
-        class="flex flex-col gap-1 text-[0.5rem] leading-[0.875rem] text-black xl:text-[0.75rem]"
+        class="flex flex-col gap-1 text-[0.5rem] font-bold leading-[0.875rem] text-black lg:text-[0.75rem]"
       >
         <div>Russian Scholarship Project</div>
 
         <div>Association &quot;Global Universities&quot;</div>
       </div>
-    </div>
+    </a>
 
     <div>
       <button
         id="hamburger"
-        class="group peer flex h-[2.25rem] w-[2.25rem] items-center justify-center xl:hidden"
+        class="group peer flex h-[2.25rem] w-[2.25rem] items-center justify-center lg:hidden"
       >
         <svg
           width="28"
@@ -130,10 +129,10 @@ import LanguageSwitch from "./components/LanguageSwitch.astro"
       </button>
 
       <nav
-        class="absolute left-0 top-full z-50 hidden h-[calc(100vh_-_4.375rem)] w-full grow flex-col gap-[1rem_3rem] whitespace-nowrap bg-white px-6 py-8 text-[0.875rem] font-semibold uppercase peer-data-[active='true']:flex xl:static xl:flex xl:h-auto xl:flex-row xl:flex-wrap xl:justify-end xl:bg-transparent xl:p-0 xl:text-[0.75rem]"
+        class="absolute left-0 top-full z-50 hidden h-[calc(100vh_-_4.375rem)] w-full grow flex-col gap-[1rem_3rem] whitespace-nowrap bg-white px-6 py-8 text-[0.875rem] font-semibold uppercase peer-data-[active='true']:flex lg:static lg:flex lg:h-auto lg:flex-row lg:flex-wrap lg:justify-end lg:bg-transparent lg:p-0 lg:text-[0.75rem]"
       >
         <ul
-          class="flex grow flex-col gap-8 xl:flex-row xl:flex-wrap xl:justify-end xl:gap-[0.5rem_1rem]"
+          class="flex grow flex-col gap-8 lg:flex-row lg:flex-wrap lg:justify-end lg:gap-[0.5rem_1rem]"
         >
           {
             [
@@ -165,7 +164,7 @@ import LanguageSwitch from "./components/LanguageSwitch.astro"
           }
         </ul>
 
-        <div class="flex shrink justify-between gap-[1rem_3rem]">
+        <div class="relative flex shrink justify-between gap-[1rem_3rem]">
           <LanguageSwitch />
 
           <ul class="flex gap-6">
@@ -191,7 +190,7 @@ import LanguageSwitch from "./components/LanguageSwitch.astro"
           </ul>
         </div>
 
-        <div class="absolute right-4 top-8 flex flex-col gap-1 xl:hidden">
+        <div class="absolute right-4 top-8 flex flex-col gap-1 lg:hidden">
           <a
             href="#!"
             title=""
