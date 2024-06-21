@@ -13,7 +13,7 @@ const { title, content, class: className } = Astro.props
     href=""
     title={`Download ${title}`}
     download
-    class="flex h-full flex-col gap-4 rounded-[1rem] bg-white p-6"
+    class="flex h-full flex-col gap-4 rounded-[1rem] bg-white fill-gray-light p-6 transition-colors md:hover:fill-pink md:hover:text-pink"
   >
     <div class="text-[1.5rem] font-bold leading-9">{title}</div>
 
@@ -24,16 +24,13 @@ const { title, content, class: className } = Astro.props
         width="19"
         height="24"
         viewBox="0 0 19 24"
-        fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
           d="M9.4371 0C9.1 0 8.82419 0.24 8.82419 0.533333V17.0667L3.83516 13.4667C3.57774 13.2747 3.19161 13.296 2.97097 13.5147C2.75032 13.7387 2.77484 14.0747 3.02613 14.2667L9.03258 18.64C9.13677 18.72 9.27774 18.7733 9.42484 18.7733C9.42484 18.7733 9.42484 18.7733 9.43097 18.7733H9.4371C9.59032 18.7733 9.72516 18.72 9.82935 18.64L15.8358 14.2667C16.0932 14.0747 16.1177 13.7333 15.891 13.5147C15.6703 13.2907 15.2781 13.2693 15.0268 13.4667L10.0377 17.0667V0.533333C10.0377 0.24 9.76193 0 9.42484 0H9.4371Z"
-          fill="#A4A4A4"
         ></path>
         <path
           d="M0 23.36C0 23.6534 0.275806 23.8934 0.612903 23.8934H18.2645C18.6016 23.8934 18.8774 23.6534 18.8774 23.36C18.8774 23.0667 18.6016 22.8267 18.2645 22.8267H0.612903C0.275806 22.8267 0 23.0667 0 23.36Z"
-          fill="#A4A4A4"
         ></path>
       </svg>
     </div>
