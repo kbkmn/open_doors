@@ -3,6 +3,9 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
+      screens: {
+        lg: "1120px",
+      },
       maxWidth: {
         content: "81.5rem",
         // content: "72.125rem",
